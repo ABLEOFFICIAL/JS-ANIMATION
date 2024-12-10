@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS ANIMATION</title>
+
+    <style>
+        .img-select {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 4rem;
+        }
+        #img-select {
+            width: 40vw;
+            height: 80vh;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="img-select"><img src="images/img1.avif"  id="img-select"></div>
+
+    <script>
+        const images = [
+            './images/img1.avif',
+            './images/img2.avif',
+            './images/img3.avif',
+            './images/img4.avif'
+        ]   
+
+        let index = 0;
+        function displayImg() {
+            let imgBox = document.getElementById('img-select');
+            // setTimeout(() => {
+            //     imgBox.src = images[1];
+            // }, 1000);
+            // setTimeout(() => {
+            //     imgBox.src = images[2];
+            // }, 2000);
+            // setTimeout(() => {
+            //     imgBox.src = images[3];
+            // }, 3000);
+
+            setInterval( () => {
+                index = (index + 1) % images.length;  // loops through the image array
+                imgBox.src = images[index];
+            }, 1000)
+                
+        }
+
+        displayImg();
+
+        // setInterval(displayImg, 3000);
+    </script>
+</body>
+</html>
